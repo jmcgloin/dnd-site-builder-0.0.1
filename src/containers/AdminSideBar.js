@@ -1,15 +1,9 @@
 import  React, {Component} from 'react';
+import DivDialog from '../components/component-dialogs/DivDialog'
 
 class AdminSideBar extends Component {
 	state= {
-		currentElement: {
-			elementName: "",
-			elementClasses: [],
-			elementProps: [],
-			elementBehavior: [],
-			elementCallbacks: [],
-			elementPosition: []
-		}
+		currentElement: {}
 	}
 	handleButtonClick = ({ target }) => {
 		const { name } = target
@@ -21,13 +15,20 @@ class AdminSideBar extends Component {
 				elementName: name
 			}
 		})
-		this.renderElementDialog(name)
 	}
-	renderElementDialog = type => `<${type}Dialog />`;
+	renderElementDialog = () => {
+		const componentDialogs = {
+			Div: <DivDialog handleDiscard={ this.handleDiscardCurrentElement } />
+		}
+		return componentDialogs[this.state.currentElement.elementName]
+	}
+	handleDiscardCurrentElement = () => {
+		this.setState({ currentElement: {} })
+	}
 	render() {
 		return (
-				<div className="admin-sidebar full-height flex flex-column flex-start" >
-					<div className="button-container">
+				<div className="admin-sidebar flex flex-column flex-start" >
+					<div className="button-container flex flex-wrap flex-row">
 						<button className="button rounded" type="click" onClick={ this.handleButtonClick } name="Div">div</button>
 						<button className="button rounded" type="click" onClick={ this.handleButtonClick } name="H1">h1</button>
 						<button className="button rounded" type="click" onClick={ this.handleButtonClick } name="H2">h2</button>
@@ -37,11 +38,11 @@ class AdminSideBar extends Component {
 						<button className="button rounded" type="click" onClick={ this.handleButtonClick } name="Image">image</button>
 					</div>
 					<div className="component-dialog flex-major">
-						Component dialog goes here
+						{ this.renderElementDialog() }
 					</div>
-					<div className="save-cancel flex flex-around">
-						<button className="button rounded">Save</button>
-						<button className="button rounded">Discard</button>
+					<div className="save-cancel flex flex-around flex-wrap">
+						<button className="button dialog-button rounded">Save</button>
+						<button className="button dialog-button rounded">Discard</button>
 					</div>
 				</div>
 		)

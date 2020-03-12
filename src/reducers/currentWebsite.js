@@ -4,21 +4,11 @@ elements will look like this:
 element = {
 	elementName: "div",
 	elementClasses: "flex flex-column",
-	elementProps: [{ id: "exampleDiv" },{ innerHtml: "this is an example div" }],
-	elementBehavior: [{ onMouseOver: handleMouseOver }],
-	elementCallbacks: [
-		{
-			handleMouseOver: ({ target }) => {
-				this.setState({
-					...this.state
-					[`${target.id}-moused`]: true
-				})
-			}
-		}
-	],
-	elementPosition: [0], // array of positions or parents, if length = 1, child of body, otherwise
-												// oth is root ancestor, 1th is next ancestor, until nth is position in parent
-	
+	elementId: "example-div",
+	elementKey: uuidV4(),
+	elementPosition: [0], position within parent element
+	elementParent: "uuidproducedkeyofparent" //the key of the parent element
+
 }
 
 
