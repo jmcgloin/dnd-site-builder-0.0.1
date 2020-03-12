@@ -1,21 +1,21 @@
 import  React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
 
-import AddButtonForm from '../containers/AddButtonForm';
+import AdminSideBar from '../containers/AdminSideBar'
 
-export default class Home extends Component {
+class AdminPage extends Component {
 	render() {
 		return (
 			<div className="flex flex-row flex-center flex-vcenter full-height">
-				<Link to="/login">
+				{/*this will be where the user can choose between viewing existing websites or creating a new one*/}
+				<Link to="/websites/new">
 					<button type="click" className="button big-button rounded">
-						Already have an account?
+						Create a new website
 					</button>
 				</Link>
-				<Link to="/signup">
+				<Link to="/websites/index">
 					<button type="click" className="button big-button rounded">
-						Create a new account.
+						See existing websites
 					</button>
 				</Link>
 			</div>
@@ -23,3 +23,4 @@ export default class Home extends Component {
 	}
 }
 
+export default AdminPage

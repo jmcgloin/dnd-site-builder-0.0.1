@@ -1,0 +1,105 @@
+@import-normalize;
+
+.main-content {
+	display: flex;
+	flex-direction: column;
+	height: 98vh;
+}
+
+header, footer {
+	height: 10vh;
+}
+
+li {
+	list-style-type: none;
+}
+
+.website-container {
+	flex-grow: 1;
+	height: 80vh;
+	width: 100%;
+}
+
+.admin-sidebar {
+	width: 20vw;
+	border: 3px solid #555;
+	border-radius: 10px;
+	padding: 1rem;
+	max-height: 80vh;
+}
+
+.component-dialog {
+	border: 2px solid #888;
+	border-radius: 10px;
+	padding: 0.5rem;
+	height: auto;
+	min-height: 80px;
+	max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-around {
+	justify-content: space-around;
+}
+
+.flex-center {
+	justify-content: center;
+}
+
+.flex-start {
+	justify-content: flex-start;
+}
+
+.flex-vcenter {
+	align-items: center;
+}
+
+.flex-major {
+	flex-grow: 1;
+}
+
+.full-screen-height {
+	height: 80vh;
+}
+
+.full-height {
+	height: 100%;
+}
+
+.button {
+	margin: .25em;
+}
+
+.rounded {
+	border-radius: 2vh;
+}
+
+.big-button {
+	padding: 8px;
+	margin: 12px 5px;
+	min-width: 50px;
+	min-height: 80px;
+	height: 20vh;
+	width: 20vw;
+	font-size: 2.5vw;
+}
+
+.big-button-circle {
+	padding: 8px;
+	margin: 12px 5px;
+	width: 20vh;
+	border-radius: 50%;
+}
