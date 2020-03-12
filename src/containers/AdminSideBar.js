@@ -12,7 +12,16 @@ class AdminSideBar extends Component {
 		}
 	}
 	handleButtonClick = ({ target }) => {
-		
+		const { name } = target
+		console.log(name)
+		this.setState({
+			...this.state,
+			currentElement: {
+				...this.state.currentElement,
+				elementName: name
+			}
+		})
+		this.renderElementDialog(name)
 	}
 	renderElementDialog = type => `<${type}Dialog />`;
 	render() {
